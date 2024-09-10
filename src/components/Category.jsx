@@ -111,9 +111,9 @@ const Category = () => {
                 <div className="">
                     <div
                         onClick={() => setUpdateUsersItem(null)}
-                        className="absolute w-full h-screen bg-neutral-300 opacity-70 left-0 top-0"></div>
+                        className="fixed z-40 w-full h-screen bg-neutral-300 opacity-70 left-0 top-0"></div>
                     <form
-                        className="ani-top flex flex-col w-[300px] absolute top-[30%] right-[30%] gap-y-3 bg-[#00000099] z-20 px-3 py-4 rounded-xl"
+                        className="ani-top flex flex-col w-[300px] fixed top-[200px] left-1/2 gap-y-3 bg-[#000c] z-50 px-3 py-4 rounded-xl"
                         onSubmit={handleUpdateUsers}
                         action="">
                         <input
@@ -146,9 +146,15 @@ const Category = () => {
                             required
                             placeholder="Gender"
                             id="">
-                            <option value="">Gender</option>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
+                            <option className="text-black" value="">
+                                Gender
+                            </option>
+                            <option className="text-black" value="male">
+                                Male
+                            </option>
+                            <option className="text-black" value="female">
+                                Female
+                            </option>
                         </select>
                         <input
                             required
