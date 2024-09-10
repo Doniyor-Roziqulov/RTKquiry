@@ -111,7 +111,7 @@ const Category = () => {
                 <div className="">
                     <div
                         onClick={() => setUpdateUsersItem(null)}
-                        className="absolute w-full h-[629px] bg-neutral-300 opacity-70 left-0 top-0"></div>
+                        className="absolute w-full h-screen bg-neutral-300 opacity-70 left-0 top-0"></div>
                     <form
                         className="ani-top flex flex-col w-[300px] absolute top-[30%] right-[30%] gap-y-3 bg-[#00000099] z-20 px-3 py-4 rounded-xl"
                         onSubmit={handleUpdateUsers}
