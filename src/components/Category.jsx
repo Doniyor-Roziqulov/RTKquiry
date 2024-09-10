@@ -21,7 +21,8 @@ const Category = () => {
         useCreateUsersMutation();
     const [deleteCategory, { data: deleteData, isLoading: deleteLoading }] =
         useDeleteUsersMutation();
-    const [updateUsers] = useUpdateUsersMutation();
+    const [updateUsers, { isLoading: updateLoading }] =
+        useUpdateUsersMutation();
 
     const handleCreateBlog = (event) => {
         event.preventDefault();
@@ -107,46 +108,76 @@ const Category = () => {
                 </form>
             </div>
             {updateUsersItem && (
-                <div>
-                    <form onSubmit={handleUpdateUsers} action="">
+                <div className="">
+                    <div
+                        onClick={() => setUpdateUsersItem(null)}
+                        className="absolute w-full h-[629px] bg-neutral-300 opacity-70 left-0 top-0"></div>
+                    <form
+                        className="ani-top flex flex-col w-[300px] absolute top-[30%] right-[30%] gap-y-3 bg-[#00000099] z-20 px-3 py-4 rounded-xl"
+                        onSubmit={handleUpdateUsers}
+                        action="">
                         <input
+                            className="border bg-transparent pl-2 text-white py-1"
                             type="text"
-                            value={updateUsersItem.fname}
+                            defaultValue={updateUsersItem.fname}
                             name="fname"
+                            required
+                            placeholder="First name"
                         />
                         <input
+                            className="border bg-transparent pl-2 text-white py-1"
                             type="text"
-                            value={updateUsersItem.fname}
+                            defaultValue={updateUsersItem.lname}
                             name="lname"
+                            required
+                            placeholder="Last name"
                         />
                         <input
+                            className="border bg-transparent pl-2 text-white py-1"
                             type="text"
-                            value={updateUsersItem.lname}
+                            defaultValue={updateUsersItem.job}
                             name="job"
+                            required
+                            placeholder="Job"
                         />
                         <select
+                            className="border bg-transparent pl-2 text-white py-1"
                             name="gender"
-                            value={updateUsersItem.gender}
+                            required
+                            placeholder="Gender"
                             id="">
                             <option value="">Gender</option>
-                            <option value="">Male</option>
-                            <option value="">Female</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
                         </select>
                         <input
+                            required
+                            placeholder="Age"
+                            className="border bg-transparent pl-2 text-white py-1"
                             type="number"
-                            value={updateUsersItem.age}
+                            defaultValue={updateUsersItem.age}
                             name="age"
                         />
                         <input
+                            required
+                            className="border bg-transparent pl-2 text-white py-1"
                             type="text"
-                            value={updateUsersItem.bio}
+                            defaultValue={updateUsersItem.bio}
                             name="bio"
+                            placeholder="Bio"
                         />
-                        <button>Save</button>
+                        <button
+                            disabled={updateLoading}
+                            className="border rounded-xl bg-black text-white py-1 hover:bg-white hover:text-black transition-all">
+                            {updateLoading ? "Loading..." : "Save"}
+                        </button>
+                        <button
+                            type="button"
+                            className="border rounded-xl bg-black text-white py-1 hover:bg-white hover:text-black transition-all"
+                            onClick={() => setUpdateUsersItem(null)}>
+                            Cancel
+                        </button>
                     </form>
-                    <button onClick={() => setUpdateUsersItem(null)}>
-                        <RiCloseLargeFill />
-                    </button>
                 </div>
             )}
             {isLoading && (

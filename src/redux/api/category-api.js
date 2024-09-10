@@ -25,7 +25,7 @@ export const usersApi = api.injectEndpoints({
             invalidatesTags: ["Users"],
         }),
         updateUsers: build.mutation({
-            query: (id, body) => ({
+            query: ({ id, body }) => ({
                 url: `/users/${id}`,
                 method: "PUT",
                 body,

@@ -199,3 +199,16 @@
         opacity: 1;
     }
 }
+
+.ani-top {
+    animation: animate 0.3s ease-in forwards;
+    opacity: 0;
+    transform: scale(0.5);
+}
+
+@keyframes animate {
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

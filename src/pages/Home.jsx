@@ -4,7 +4,7 @@ const Home = () => {
     return (
         <section className="overflow-hidden">
             <div className="w-full h-[620px] flex items-center justify-center">
-                <h1 className="text-6xl text-blue-600 font-extrabold">
+                <h1 className="text-8xl text-blue-600 font-extrabold">
                     RTK va Mock API
                 </h1>
             </div>
